@@ -1,0 +1,249 @@
+Building configuration...
+
+Current configuration : 5982 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname ACM-SWB
+!
+boot-start-marker
+boot-end-marker
+!
+!
+username raducostin privilege 15 secret 5 $1$loBx$H8TYsf9qKIQMkRtF1Vll..
+username acmadmin privilege 15 secret 5 $1$EKia$4Nu6.uug6EIQmCcjrVQI5/
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+ip domain-name acm.ro
+!
+!
+crypto pki trustpoint TP-self-signed-3250625664
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3250625664
+ revocation-check none
+ rsakeypair TP-self-signed-3250625664
+!
+!
+crypto pki certificate chain TP-self-signed-3250625664
+ certificate self-signed 01
+  30820246 308201AF A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 33323530 36323536 3634301E 170D3933 30333031 30303030
+  35305A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 32353036
+  32353636 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100D4CA AA808EEA 9020A24C 6E459303 8FA1E42D 6E2CD17A 6F0BFF96 93B2B2D3
+  54E62A7E 8118936C DD730172 50C5C5B7 69F297F7 7FA75485 CBE611DA B667A478
+  E01D1E33 882AF159 435E33B1 D6413544 398A66E3 F2518FBC AAD5C1E0 969A99A3
+  64109620 F225A0E6 6A66CA99 0AA95466 A8084F7F A5E40E74 655624A9 E247692C
+  8F1D0203 010001A3 6E306C30 0F060355 1D130101 FF040530 030101FF 30190603
+  551D1104 12301082 0E41434D 2D535742 2E61636D 2E726F30 1F060355 1D230418
+  30168014 2CC86105 052B2081 2AF86185 A15F4C6E 73E10C12 301D0603 551D0E04
+  1604142C C8610505 2B20812A F86185A1 5F4C6E73 E10C1230 0D06092A 864886F7
+  0D010104 05000381 8100B527 25CE944D D62383D3 EB0E5CAE BDA947C0 13955F26
+  0B8D132C C96A73F4 BF72668F 0209C371 1802EB0C FC1C1DE6 634103CC EBD52209
+  AF6A9FF8 60A7CA92 035756E9 C371D8E5 A08E7928 B2387C17 686264B3 8E748C3E
+  4C3991D1 550314F3 1EB8F17C 4D5091C1 AF65545A D1150CBD D357C620 72E8B9B6
+  3FC6D58D BD16B824 093C
+  quit
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface Port-channel1
+ description Uplink-To-SW0
+ switchport trunk native vlan 1001
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description ---------UNUSED-----------
+ switchport access vlan 100
+ switchport mode access
+ shutdown
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ description Uplink-To-SW0
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/2
+ description Uplink-To-SW0
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan999
+ ip address 141.85.223.42 255.255.255.240
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+control-plane
+!
+!
+line con 0
+ login local
+line vty 0 4
+ login local
+line vty 5 15
+ login local
+!
+end

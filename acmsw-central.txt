@@ -1,0 +1,264 @@
+Building configuration...
+
+Current configuration : 6351 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname ACMSW0
+!
+boot-start-marker
+boot-end-marker
+!
+!
+username raducostin privilege 15 secret 5 $1$BU84$scQi7TCik9nBaH3wlYi450
+username acmadmin privilege 15 secret 5 $1$XCGa$4f1saKPjhU3lSSuP3zo7p/
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+ip domain-name acm.ro
+!
+!
+crypto pki trustpoint TP-self-signed-1828228096
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1828228096
+ revocation-check none
+ rsakeypair TP-self-signed-1828228096
+!
+!
+crypto pki certificate chain TP-self-signed-1828228096
+ certificate self-signed 01
+  3082023F 308201A8 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 31383238 32323830 3936301E 170D3933 30333031 30303030
+  35315A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 38323832
+  32383039 3630819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100D4B3 010128C6 20C9C34A CF87E548 152EF7E7 643FCA80 F257D1DB A905AD99
+  ACD26DED 8D6A51E5 50A0B1E9 83B76CE0 87968324 D73824CD D8771F41 90B8C2D2
+  576C8DEF 45C3E301 6D595313 50E2FD8F 58665094 D6432446 F8D228E4 F8D4CB65
+  F30438B0 79C3935A 02ABB64C 9019807A DE2AE460 69FC6D7E 0A43EBBC 27CF1227
+  57850203 010001A3 67306530 0F060355 1D130101 FF040530 030101FF 30120603
+  551D1104 0B300982 0741434D 5357302E 301F0603 551D2304 18301680 141C2C6E
+  9DC69AE4 84D4683A F3AC568A EEBD014E B5301D06 03551D0E 04160414 1C2C6E9D
+  C69AE484 D4683AF3 AC568AEE BD014EB5 300D0609 2A864886 F70D0101 04050003
+  8181009F 8F2FEF5B 87B53746 2E9DB864 35C13D0E 312ACE3A C8339BE2 59AC6BDD
+  3EA19ED9 837D2D57 1A619A2F 4163C5DC 3DE6A147 F763C9EE 195CF2AE 8C70F5E4
+  5B438E44 76F8E0A9 162F36D0 49AEBCD6 C6B10775 BA29CAEE 1231C704 F4E60D98
+  42F0608D 8C9FCDA0 3580D800 F1826C08 6C542A43 F9DB3FF0 A9760A24 F4BD75BC 61BF27
+  quit
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface Port-channel1
+ description Uplink-UPB
+ switchport access vlan 999
+ switchport mode access
+!
+interface Port-channel2
+ description SW-UplinkA
+ switchport trunk native vlan 1001
+ switchport mode trunk
+!
+interface Port-channel3
+ description SW-UplinkB
+ switchport trunk native vlan 1001
+ switchport mode trunk
+!
+interface Port-channel4
+ description SW-UplinkC
+ switchport trunk native vlan 1001
+ switchport mode trunk
+!
+interface Port-channel5
+ description SW-UplinkJ
+ switchport trunk native vlan 1001
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ description SW-UplinkA
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet0/2
+ description SW-UplinkA
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet0/3
+ description SW-UplinkB
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 3 mode active
+!
+interface FastEthernet0/4
+ description SW-UplinkB
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 3 mode active
+!
+interface FastEthernet0/5
+ description SW-UplinkC
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 4 mode active
+!
+interface FastEthernet0/6
+ description SW-UplinkC
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 4 mode active
+!
+interface FastEthernet0/7
+ description SW-UplinkJ
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 5 mode active
+!
+interface FastEthernet0/8
+ description SW-UplinkJ
+ switchport trunk native vlan 1001
+ switchport mode trunk
+ channel-group 5 mode active
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description VLAN100
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description Downlink-Server-ACM
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description Uplink-Server-ACM
+ switchport access vlan 999
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ description Uplink-UPB
+ switchport access vlan 999
+ switchport mode access
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/2
+ description Uplink-UPB
+ switchport access vlan 999
+ switchport mode access
+ channel-group 1 mode active
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan999
+ ip address 141.85.223.40 255.255.255.240
+ ip access-group SSH-CON in
+ no ip route-cache
+!
+ip default-gateway 141.85.223.33
+ip http server
+ip http secure-server
+!
+ip access-list extended SSH-CON
+ permit tcp 141.85.0.0 0.0.255.255 any eq 22
+ permit icmp 141.85.0.0 0.0.255.255 any
+ permit tcp 141.85.0.0 0.0.255.255 any established
+!
+control-plane
+!
+!
+line con 0
+ login local
+line vty 0 4
+ access-class SSH-CON in
+ login local
+ transport input ssh
+line vty 5 15
+ access-class SSH-CON in
+ login local
+ transport input ssh
+!
+end
