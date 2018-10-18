@@ -1,3 +1,6 @@
+Building configuration...
+
+Current configuration : 6214 bytes
 !
 version 12.2
 no service pad
@@ -5,14 +8,14 @@ service timestamps debug datetime msec
 service timestamps log datetime msec
 no service password-encryption
 !
-hostname ACM-SWB
+hostname ACM-SWA
 !
 boot-start-marker
 boot-end-marker
 !
 !
-username raducostin privilege 15 secret 5 $1$loBx$H8TYsf9qKIQMkRtF1Vll..
-username acmadmin privilege 15 secret 5 $1$EKia$4Nu6.uug6EIQmCcjrVQI5/
+username raducostin privilege 15 secret 5 $1$VOaf$alxuhkMRr0M3vAKz9YSK60
+username acmadmin privilege 15 secret 5 $1$Cdq.$t//30xJh8HnjfhTWmzvf1.
 no aaa new-model
 system mtu routing 1500
 ip subnet-zero
@@ -20,15 +23,35 @@ ip subnet-zero
 ip domain-name acm.ro
 !
 !
-crypto pki trustpoint TP-self-signed-3250625664
+crypto pki trustpoint TP-self-signed-3242408448
  enrollment selfsigned
- subject-name cn=IOS-Self-Signed-Certificate-3250625664
+ subject-name cn=IOS-Self-Signed-Certificate-3242408448
  revocation-check none
- rsakeypair TP-self-signed-3250625664
+ rsakeypair TP-self-signed-3242408448
 !
 !
-crypto pki certificate chain TP-self-signed-3250625664
- certificate self-signed 01 nvram:IOS-Self-Sig#3401.cer
+crypto pki certificate chain TP-self-signed-3242408448
+ certificate self-signed 01
+  30820246 308201AF A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 33323432 34303834 3438301E 170D3933 30333031 30303030
+  34375A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 32343234
+  30383434 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100BB1C 858EA8BF DFF41C94 20140702 95A0A110 16D23185 BD84741B 5028C592
+  58EA833F 557F542E E8120EAE A5209BC8 A6F92480 7CE2BEE3 61F08B35 B242C1DC
+  02AEC09D 38E0840C B93F1419 6D315423 362839A3 2D619EB0 37C16F24 F3D2B69C
+  5E326131 15822152 4848616A 38501E51 35900865 D5EC2AB0 84826B09 2EE5C6DE
+  57050203 010001A3 6E306C30 0F060355 1D130101 FF040530 030101FF 30190603
+  551D1104 12301082 0E41434D 2D535741 2E61636D 2E726F30 1F060355 1D230418
+  30168014 9F7EA82F 694223FF 7D22EE05 31FE2CEE A49C3374 301D0603 551D0E04
+  1604149F 7EA82F69 4223FF7D 22EE0531 FE2CEEA4 9C337430 0D06092A 864886F7
+  0D010104 05000381 8100007C ED46C0BB 7D622B0F 7DF8E458 A3AEBA73 7585F19F
+  E524588C A95AE8A7 63BADF42 B56B3397 AC2D1040 ABFE3EEB 6E93B2C4 82DA1E3D
+  60AE9FFC 2278249E BC29FEC0 3D594AD2 5C69113D DDD77222 51CBAB80 C3E88A67
+  F2C9821B 067C7A25 A037864A F6560C35 3410581B F90296FA 786B1268 150A9AB8
+  326FD71A 979B304F 2AFE
+  quit
 !
 !
 !
@@ -47,144 +70,154 @@ interface Port-channel1
  switchport mode trunk
 !
 interface FastEthernet0/1
- switchport access vlan 100
+ description Rand A , masa 1
+ switchport access vlan 11
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/2
- switchport access vlan 100
+ description Rand A , masa 2
+ switchport access vlan 12
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/3
- switchport access vlan 100
+ description Rand A , masa 3
+ switchport access vlan 13
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/4
- switchport access vlan 100
+ description Rand A , masa 4
+ switchport access vlan 14
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/5
- switchport access vlan 100
+ description Rand A , masa 5
+ switchport access vlan 15
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/6
- switchport access vlan 100
+ description Rand A , masa 6
+ switchport access vlan 16
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/7
- description ---------UNUSED-----------
- switchport access vlan 100
+ description Rand A , masa 7
+ switchport access vlan 17
  switchport mode access
- shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/8
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/9
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/10
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/11
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/12
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/13
- switchport access vlan 100
+ description Rand B , masa 1
+ switchport access vlan 21
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/14
- switchport access vlan 100
+ description Rand B , masa 2
+ switchport access vlan 22
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/15
- switchport access vlan 100
+ description Rand B , masa 3
+ switchport access vlan 23
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/16
- switchport access vlan 100
+ description Rand B , masa 4
+ switchport access vlan 24
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/17
- switchport access vlan 100
+ description Rand B , masa 5
+ switchport access vlan 25
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/18
- switchport access vlan 100
+ description Rand B , masa 6
+ switchport access vlan 26
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/19
- description ---------UNUSED-----------
- switchport access vlan 100
+ description Rand B , masa 7
+ switchport access vlan 27
  switchport mode access
- shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/20
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/21
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/22
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/23
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/24
- description ---------UNUSED-----------
+ description -------UNUSED-------
  switchport access vlan 100
  switchport mode access
  shutdown
@@ -207,7 +240,7 @@ interface Vlan1
  no ip route-cache
 !
 interface Vlan999
- ip address 141.85.223.42 255.255.255.240
+ ip address 141.85.223.41 255.255.255.240
  no ip route-cache
 !
 ip http server

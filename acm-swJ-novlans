@@ -1,6 +1,3 @@
-Building configuration...
-
-Current configuration : 3518 bytes
 !
 version 12.1
 no service pad
@@ -93,53 +90,73 @@ interface FastEthernet0/12
  spanning-tree portfast
 !
 interface FastEthernet0/13
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/14
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/15
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/16
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/17
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/18
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/19
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/20
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/21
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/22
+ description -----UNUSED-----
  switchport access vlan 100
  switchport mode access
+ shutdown
  spanning-tree portfast
 !
 interface FastEthernet0/23
